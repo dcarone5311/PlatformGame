@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Edited by Dominic Carone
 
 public class PlayerMovementBeginner : MonoBehaviour {
 
@@ -10,16 +11,16 @@ public class PlayerMovementBeginner : MonoBehaviour {
     //=========== Moving Logic ============
     public float runSpeed = 0f;
     private float horizontalMove = 0f;
-    private Vector3 m_Velocity;
+    private Vector3 m_Velocity = Vector3.zero;
 
     [Space]
     [Header("Jump Logic")]
 
     //============ Jump Logic ============
     public float m_JumpForce = 200f;
-    private bool m_Grounded;
-    public Transform m_GroundCheck;
-    public LayerMask m_GroundLayer;
+    private bool m_Grounded = false;
+    public Transform m_GroundCheck { get; set; }
+    public LayerMask m_GroundLayer = 0;
 
 
     // Use this for initialization
@@ -35,9 +36,9 @@ public class PlayerMovementBeginner : MonoBehaviour {
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        if (m_Grounded && Input.GetButtonDown("Jump"))
+        if (m_Grounded && Input.GetButtonDown("Jump")) //If the player is on ground and pressing Jump
         {
-            m_Grounded = false;
+            m_Grounded = false; //player is no longer grounded and experiences an immediate upward force
             m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
         }
     }
@@ -47,7 +48,22 @@ public class PlayerMovementBeginner : MonoBehaviour {
     {
         Vector3 targetVelocity = new Vector2(horizontalMove * 10f * Time.fixedDeltaTime, m_RigidBody2D.velocity.y);
         m_RigidBody2D.velocity = targetVelocity;
+        if (m_RigidBody2D.velocity == new Vector2(0.0f,0.0f) )
+        {
+            Debug.Log("Play Idle Animation.");
+            
+        }
+        if (this.gameObject.transform.rotation.y == 0.0f && m_RigidBody2D.velocity.x < 0)
+        {
+            this.gameObject.transform.rotation =  new Quaternion(0.0f,180.0f,0.0f,0.0f);
+        }
+        if (this.gameObject.transform.rotation.y != 0.0f && m_RigidBody2D.velocity.x > 0)
+        {
+            this.gameObject.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+        }
+        
+       
 
-        m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer);
+        //m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer); //true if player contacts ground
     }
 }
