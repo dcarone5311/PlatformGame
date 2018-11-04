@@ -19,7 +19,7 @@ public class PlayerMovementBeginner : MonoBehaviour {
     //============ Jump Logic ============
     public float m_JumpForce = 200f;
     private bool m_Grounded = false;
-    public Transform m_GroundCheck { get; set; }
+    public Transform m_GroundCheck;
     public LayerMask m_GroundLayer = 0;
 
 
@@ -29,6 +29,7 @@ public class PlayerMovementBeginner : MonoBehaviour {
         //m_RigidBody2D = GetComponent<Rigidbody2D>(); //Instead of manually putting the RigidBody2D Component we can get the component from the Object
 
         m_Velocity = Vector3.zero; //same as new Vector3(0,0,0)
+        m_GroundCheck = GameObject.Find("PLATFORM").transform;
     }
 
     // Update is called once per frame
@@ -50,7 +51,7 @@ public class PlayerMovementBeginner : MonoBehaviour {
         m_RigidBody2D.velocity = targetVelocity;
         if (m_RigidBody2D.velocity == new Vector2(0.0f,0.0f) )
         {
-            Debug.Log("Play Idle Animation.");
+           //play idle animation
             
         }
         if (this.gameObject.transform.rotation.y == 0.0f && m_RigidBody2D.velocity.x < 0)
@@ -64,6 +65,10 @@ public class PlayerMovementBeginner : MonoBehaviour {
         
        
 
-        //m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer); //true if player contacts ground
+        m_Grounded = Physics2D.Linecast(this.gameObject.transform.position, m_GroundCheck.position, m_GroundLayer); //true if player contacts ground
+        if (m_Grounded)
+        {
+            Debug.Log("Grounded.");
+        }
     }
 }

@@ -170,10 +170,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RigidBody2D: {fileID: 291087662}
   runSpeed: 40
-  m_JumpForce: 1000
+  m_JumpForce: 500
+  m_GroundCheck: {fileID: 0}
   m_GroundLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
 --- !u!212 &291087660
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -247,7 +248,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
