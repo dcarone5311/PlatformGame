@@ -524,6 +524,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1060135907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1621370096760718, guid: fcb30cc1fc1d3e048bea4c8f19f8f82d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1112472145}
+--- !u!68 &1060135908
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1060135907}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.13395333, y: 0.33032316}
+  - {x: 0.10161662, y: 0.36318976}
+  - {x: 0.113583565, y: -0.34452248}
+  - {x: -0.016796827, y: -0.21456629}
+  - {x: -0.19387579, y: -0.4005859}
+  - {x: -0.1249485, y: 0.33925086}
 --- !u!1001 &1112472145
 Prefab:
   m_ObjectHideFlags: 0
@@ -572,6 +598,13 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114934438150059644, guid: fcb30cc1fc1d3e048bea4c8f19f8f82d,
+        type: 2}
+      propertyPath: m_JumpForce
+      value: 300
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 61858591204937788, guid: fcb30cc1fc1d3e048bea4c8f19f8f82d, type: 2}
+    - {fileID: 58527045640804220, guid: fcb30cc1fc1d3e048bea4c8f19f8f82d, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: fcb30cc1fc1d3e048bea4c8f19f8f82d, type: 2}
   m_IsPrefabAsset: 0
