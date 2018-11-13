@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
+using System.Globalization;
 
 public class Timer : MonoBehaviour {
 
@@ -23,7 +25,9 @@ public class Timer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         seconds += Time.deltaTime; //deltaTime = "seconds it took to complete the last frame"
-        text.text = seconds.ToString();
+
+        string formattedString = seconds.ToString("N", CultureInfo.InvariantCulture);
+        text.text = formattedString;
 
 
 	}
