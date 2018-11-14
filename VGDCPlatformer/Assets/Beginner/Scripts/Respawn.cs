@@ -17,15 +17,14 @@ public class Respawn : MonoBehaviour {
 		
 	}
 
-    void onTriggerEnter2D(Collider collider)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("Respawn point triggered.");
+        player.transform.rotation = Quaternion.identity;
+        //player.transform.Rotate(Vector3.up, 360 - Mathf.Abs(player.transform.rotation.z));
         player.transform.position = respawnPoint.transform.position;
     }
 
-    void onCollisionEnter2D(Collider collider)
-    {
-        Debug.Log("Respawn point triggered. (Collision)");
-        player.transform.position = respawnPoint.transform.position;
-    }
+        
+
 }
