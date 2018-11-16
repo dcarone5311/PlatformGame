@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerMovementBeginner : MonoBehaviour {
 
+    public Animator animator;
+
     public Rigidbody2D m_RigidBody2D;
 
     [Header("Movement Logic")]
@@ -35,7 +37,11 @@ public class PlayerMovementBeginner : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        animator.SetBool("IsGrounded", m_Grounded);
 
         if (m_Grounded && Input.GetButtonDown("Jump")) //If the player is on ground and pressing Jump
         {

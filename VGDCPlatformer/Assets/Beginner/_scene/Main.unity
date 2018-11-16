@@ -966,6 +966,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cc34186a3a0cc428fc0e0be7ad13af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1060135913
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1060135907}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a0a29b3d5616d489717998ad9ab3d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1109709496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1147,17 @@ Prefab:
       propertyPath: m_JumpForce
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 212241246631130640, guid: fcb30cc1fc1d3e048bea4c8f19f8f82d,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 082984ec0fd0d8048a306ef7c9f42aa6,
+        type: 3}
+    - target: {fileID: 114934438150059644, guid: fcb30cc1fc1d3e048bea4c8f19f8f82d,
+        type: 2}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1060135913}
     m_RemovedComponents:
     - {fileID: 61858591204937788, guid: fcb30cc1fc1d3e048bea4c8f19f8f82d, type: 2}
     - {fileID: 58527045640804220, guid: fcb30cc1fc1d3e048bea4c8f19f8f82d, type: 2}
