@@ -4,6 +4,7 @@ using UnityEngine;
 //player movement- Dominic Carone
 public class PlayerMovement : MonoBehaviour
 {
+    public int checkpoint = 0; //0 is original spawn point
     public Rigidbody2D m_RigidBody2D;
 
     [Header("Movement Logic")]
