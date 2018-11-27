@@ -21,6 +21,7 @@ public class PlayerMovementBeginner : MonoBehaviour
     private bool m_Grounded;
     public Transform m_GroundCheck;
     public LayerMask m_GroundLayer;
+    
 
     // Use this for initialization
 
@@ -40,6 +41,15 @@ public class PlayerMovementBeginner : MonoBehaviour
     {
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+        if(horizontalMove < 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if(horizontalMove > 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); // sets "Speed" parameter for the animator
 
