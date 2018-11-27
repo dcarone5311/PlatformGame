@@ -6,6 +6,8 @@ public class PlayerMovementBeginner : MonoBehaviour
 {
     public Rigidbody2D m_RigidBody2D;
 
+    public Animator animator;
+
     [Header("Movement Logic")]
     //=========== Moving Logic ============
     public float runSpeed = 0f; //running speed is max speed on ground with no external forces
@@ -19,6 +21,7 @@ public class PlayerMovementBeginner : MonoBehaviour
     private bool m_Grounded;
     public Transform m_GroundCheck;
     public LayerMask m_GroundLayer;
+    
 
     // Use this for initialization
 
@@ -38,10 +41,23 @@ public class PlayerMovementBeginner : MonoBehaviour
     {
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+        if(horizontalMove < 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if(horizontalMove > 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); // sets "Speed" parameter for the animator
+
         if (m_Grounded && Input.GetButtonDown("Jump"))
         {
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(m_RigidBody2D.velocity.x, m_JumpForce));
+            animator.SetBool("IsGrounded", true); // sets "IsGrounded" parameter for the animator
         }
     }
     // FixedUpdate is called multiple times per frame at different rates
@@ -51,6 +67,10 @@ public class PlayerMovementBeginner : MonoBehaviour
         m_RigidBody2D.velocity = targetVelocity; //maintain the target velocity
         m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer);
         Debug.Log(m_Grounded);
+
+        animator.SetBool("IsGrounded", m_Grounded); // sets "IsGrounded" parameter for the animator
     }
+
+    
 
 }
