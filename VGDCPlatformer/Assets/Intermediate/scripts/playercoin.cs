@@ -7,6 +7,8 @@ public class playercoin : MonoBehaviour
 
     private coincount coincount1;
 
+    private bool hasCollide = false;
+
     // Use this for initialization
     void Start()
     {
@@ -16,15 +18,19 @@ public class playercoin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        hasCollide = false;
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("coin"))
         {
-            Destroy(col.gameObject);
-            coincount1.coins += 1;
+            if (hasCollide == false)
+            {
+                hasCollide = true;
+                Destroy(col.gameObject);
+                coincount1.coins += 1;
+            }
         }
     }
 }
