@@ -5,13 +5,14 @@ using UnityEngine;
 public class Respawn : MonoBehaviour {
     List<Checkpoint> respawnPoints = new List<Checkpoint>();
     public PlayerMovement player;
-    [SerializeField] private Transform playerTransform;
+    private Transform playerTransform;
 
 	// Use this for initialization
 	void Awake () {
+        playerTransform = player.gameObject.transform;
         for(int i =0; i < transform.childCount; i++) //dynamically get checkpoints that are children of the trigger
         {
-            Checkpoint childCheckpoint = transform.GetChild(i).GetComponent<Checkpoint>(); // this object transform > child > its component that is a checkpoint
+            Checkpoint childCheckpoint = transform.GetChild(i).GetComponent<Checkpoint>(); // this object's transform > child > its component that is a checkpoint
             Debug.Log(childCheckpoint.checkpointNum);
             respawnPoints.Add(childCheckpoint);
         }
