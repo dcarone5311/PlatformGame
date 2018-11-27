@@ -4,6 +4,7 @@ using UnityEngine;
 //player movement- Dominic Carone
 public class PlayerMovement : MonoBehaviour
 {
+    public int checkpoint = 0; //0 is original spawn point
     public Rigidbody2D m_RigidBody2D;
 
     public Animator animator;
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
 
     {
+        //WALKING
         if (Input.GetButton("Horizontal"))
             {
                 m_RigidBody2D.AddForce(new Vector2(Input.GetAxisRaw("Horizontal")*runForce, 0f)); //add a force to walk
@@ -61,12 +63,15 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+        
+       
+        //JUMPING
         if (m_Grounded ) //if on the ground 
         {
             jumpCount = midAirJumps;
             if (Input.GetButtonDown("Jump")) //jump button is pressed
             {
-                m_Grounded = false; //no longer grounded
+                m_Grounded = false;  //no longer grounded
                 m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, jumpSpeed * 10f * Time.fixedDeltaTime); //jump
             }
         }
@@ -90,6 +95,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsGrounded", m_Grounded); // sets "IsGrounded" parameter for the animator
 
     }
+
+
     // FixedUpdate is called multiple times per frame at different rates
     void FixedUpdate()
     {
