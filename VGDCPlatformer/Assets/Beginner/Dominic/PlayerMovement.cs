@@ -41,19 +41,20 @@ public class PlayerMovement : MonoBehaviour
     void Update()
 
     {
+        //WALKING
         if (Input.GetButton("Horizontal"))
             {
                 m_RigidBody2D.AddForce(new Vector2(Input.GetAxisRaw("Horizontal")*runForce, 0f)); //add a force to walk
             }
         
        
-        
+        //JUMPING
         if (m_Grounded ) //if on the ground 
         {
             jumpCount = midAirJumps;
             if (Input.GetButtonDown("Jump")) //jump button is pressed
             {
-                m_Grounded = false; //no longer grounded
+                m_Grounded = false;  //no longer grounded
                 m_RigidBody2D.velocity = new Vector2(m_RigidBody2D.velocity.x, jumpSpeed * 10f * Time.fixedDeltaTime); //jump
             }
         }
@@ -76,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
         
         
     }
+
+
     // FixedUpdate is called multiple times per frame at different rates
     void FixedUpdate()
     {
