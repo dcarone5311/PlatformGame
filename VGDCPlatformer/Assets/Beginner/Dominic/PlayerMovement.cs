@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D m_RigidBody2D;
 
+    public Animator animator;
+
     [Header("Movement Logic")]
     //=========== Moving Logic ============
     public float runSpeed = 8f; //running speed is max speed on ground with no external forces
@@ -45,9 +47,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 m_RigidBody2D.AddForce(new Vector2(Input.GetAxisRaw("Horizontal")*runForce, 0f)); //add a force to walk
             }
-        
-       
-        
+
+        if (m_RigidBody2D.velocity.x < 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (m_RigidBody2D.velocity.x > 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        animator.SetFloat("Speed", Mathf.Abs(m_RigidBody2D.velocity.x)); // sets "Speed" parameter for the animator
+
+
+
         if (m_Grounded ) //if on the ground 
         {
             jumpCount = midAirJumps;
@@ -73,8 +86,9 @@ public class PlayerMovement : MonoBehaviour
                 jumpCount -= 1; //subtract one from midair jump counter. (Might read as grounded from ground jump
             }
         }
-        
-        
+
+        animator.SetBool("IsGrounded", m_Grounded); // sets "IsGrounded" parameter for the animator
+
     }
     // FixedUpdate is called multiple times per frame at different rates
     void FixedUpdate()
@@ -106,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
         m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer);
         m_WalledLeft = Physics2D.Linecast(transform.position, m_WallCheckLeft.position, m_WallLayer) ;
         m_WalledRight = Physics2D.Linecast(transform.position, m_WallCheckRight.position, m_WallLayer);
+
         
     }
 
