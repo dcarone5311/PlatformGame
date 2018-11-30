@@ -10,6 +10,7 @@ public class Respawn : MonoBehaviour {
 
     private int lives;
     public Text livesText;
+
     
 
 	// Use this for initialization
@@ -27,9 +28,9 @@ public class Respawn : MonoBehaviour {
     {
         lives = 3;
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         livesText.text = ("Lives: " + lives);
     }
@@ -43,16 +44,17 @@ public class Respawn : MonoBehaviour {
         playerTransform.transform.position = respawnPoints[player.checkpoint].gameObject.transform.position;
 
         lives -= 1;
+
         if (lives <= 0)
         {
-            gameOver();
+                gameOver();
         }
     }
 
     // reloads the level
     void gameOver()
     {
-        Application.LoadLevel(Application.loadedLevel);
+            Application.LoadLevel(Application.loadedLevel);
     }
 
 
