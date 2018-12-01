@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     //public float m_JumpForce = 200f;
     public float jumpSpeed = 80f; //use a jump speed instead of jump force to prevent double jump from adding up
     private bool m_Grounded, m_WalledLeft, m_WalledRight; //check if player is on ground or hugging wall
-    public Transform m_GroundCheck, m_WallCheckLeft, m_WallCheckRight;
+    public Transform m_GroundCheck, m_WallCheck;
     public LayerMask m_GroundLayer, m_WallLayer;
     public int midAirJumps; //set to 1 for double jump, 2 for triple.
     private int jumpCount; //use to track how many jumps the player has left
@@ -125,8 +125,8 @@ public class PlayerMovement : MonoBehaviour
 
         //booleans for whether player is gounded to on wall.
         m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer);
-        m_WalledLeft = Physics2D.Linecast(transform.position, m_WallCheckLeft.position, m_WallLayer) ;
-        m_WalledRight = Physics2D.Linecast(transform.position, m_WallCheckRight.position, m_WallLayer);
+        m_WalledLeft = Physics2D.Linecast(transform.position, m_WallCheck.position, m_WallLayer) ;
+        m_WalledRight = Physics2D.Linecast(transform.position, m_WallCheck.position, m_WallLayer);
 
         
     }
