@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
                        //public float playerSpawnY = -1.9f; //where the player spawns at start or death, Y coord
     public bool hurtbox = false;
     public Transform SpawnPoint;
-
+    public string location = "Main";
     //Use this for initialization
     void Start()
     {
@@ -54,7 +54,7 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             //restarts level
-            SceneManager.LoadScene("JessicaLevel");
+            SceneManager.LoadScene(location);
 
         }
     }
