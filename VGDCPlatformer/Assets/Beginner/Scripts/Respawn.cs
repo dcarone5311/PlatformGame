@@ -11,23 +11,36 @@ public class Respawn : MonoBehaviour {
     private int lives;
     public Text livesText;
 
-    
+    public delegate void deatherino();
+    public static event deatherino OnDeath;
 
-	// Use this for initialization
-	void Awake () {
+    
+    void Start()
+    {
+        lives = 3;
         playerTransform = player.gameObject.transform;
-        for(int i =0; i < transform.childCount; i++) //dynamically get checkpoints that are children of the trigger
+        for (int i = 0; i < transform.childCount; i++) //dynamically get checkpoints that are children of the trigger
         {
             Checkpoint childCheckpoint = transform.GetChild(i).GetComponent<Checkpoint>(); // this object's transform > child > its component that is a checkpoint
             Debug.Log(childCheckpoint.checkpointNum);
             respawnPoints.Add(childCheckpoint);
         }
+    }
+
+    private void OnEnable()
+    {
+        OnDeath += respawn;
+    }
+
+    private void OnDisable() //this is to prevent memory leaks
+    {
+        OnDeath -= respawn;
+    }
+    // Use this for initialization
+    void Awake () {
+
 	}
 
-	void Start ()
-    {
-        lives = 3;
-	}
 
     // Update is called once per frame
     void Update()
@@ -40,15 +53,9 @@ public class Respawn : MonoBehaviour {
         Debug.Log("Respawn point triggered.");
         Debug.Log(player.checkpoint);
         Debug.Log(respawnPoints[player.checkpoint]);
-        playerTransform.transform.rotation = Quaternion.identity; //need to get transform component first in order to change its properties
-        playerTransform.transform.position = respawnPoints[player.checkpoint].gameObject.transform.position;
 
-        lives -= 1;
+        OnDeath();
 
-        if (lives <= 0)
-        {
-                gameOver();
-        }
     }
 
     // reloads the level
@@ -57,6 +64,20 @@ public class Respawn : MonoBehaviour {
             Application.LoadLevel(Application.loadedLevel);
     }
 
+    void respawn()
+    {
+        playerTransform.transform.rotation = Quaternion.identity; //need to get transform component first in order to change its properties
+        playerTransform.transform.position = respawnPoints[player.checkpoint].gameObject.transform.position;
+
+        lives -= 1;
+
+        if (lives <= 0)
+        {
+            gameOver();
+        }
+
+
+    }
 
 
 }
