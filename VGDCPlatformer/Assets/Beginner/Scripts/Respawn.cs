@@ -8,7 +8,7 @@ public class Respawn : MonoBehaviour {
     public PlayerMovement player;
     private Transform playerTransform;
 
-    private int lives;
+    public int lives = 3;
     public Text livesText;
 
     public delegate void deatherino();
@@ -40,7 +40,6 @@ public class Respawn : MonoBehaviour {
     void Awake () {
 
 	}
-
 
     // Update is called once per frame
     void Update()
