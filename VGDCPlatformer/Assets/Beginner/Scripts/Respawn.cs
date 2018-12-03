@@ -13,6 +13,7 @@ public class Respawn : MonoBehaviour {
 
     public delegate void deatherino();
     public static event deatherino OnPlayerDeath;
+    int deadly = -40;
 
     
     void Start()
@@ -45,19 +46,24 @@ public class Respawn : MonoBehaviour {
     void Update()
     {
         livesText.text = ("Lives: " + lives);
+
+        if (playerTransform.position.y <= deadly)
+        {
+            playerDeath();
+        }
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void debugInfo()
     {
         Debug.Log("Respawn point triggered.");
         Debug.Log("Player checkpoint at: " + player.checkpoint); 
         Debug.Log(respawnPoints[player.checkpoint]);
 
-        playerDeath();
     }
 
     public static void playerDeath()
     {
+        Debug.Log("Died..");
         OnPlayerDeath();
     }
 
@@ -75,7 +81,7 @@ public class Respawn : MonoBehaviour {
 
         lives -= 1;
 
-        if (lives <= 0)
+        if (lives == 0)
         {
             gameOver();
         }

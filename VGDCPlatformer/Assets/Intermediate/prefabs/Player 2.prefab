@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec44e24bc1f9f664abcb80c4b4aece60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpoint: 1
+  checkpoint: 0
   m_RigidBody2D: {fileID: 50430075786867594}
   animator: {fileID: 95604509545636244}
   runSpeed: 8
@@ -262,11 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc5796e4f475c24ca53110d404e9ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 1
-  health: 0
   hurtbox: 0
-  SpawnPoint: {fileID: 0}
-  location: JessicaLevel
 --- !u!212 &212487182781612336
 SpriteRenderer:
   m_ObjectHideFlags: 1
