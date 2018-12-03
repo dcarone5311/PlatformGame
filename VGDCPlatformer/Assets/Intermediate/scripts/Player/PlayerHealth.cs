@@ -7,20 +7,12 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
 
-    public int startHealth = 1; //the amount of health the player is suppose to start with
-    public int health; //the amount of health the player has, at 0 player dies
-                       //public float playerSpawnX = -17.3f; //where the player spawns at start or death, X coord
-                       //public float playerSpawnY = -1.9f; //where the player spawns at start or death, Y coord
     public bool hurtbox = false;
-    public Transform SpawnPoint;
-    public string location = "Main";
-    public float deadly = -10;
+   
     //Use this for initialization
     void Start()
     {
-        health = startHealth;
-        GameManager.UpdateSpawn(SpawnPoint);
-        gameObject.transform.position = GameManager.spawnPoint.position;
+      
     }
 
 
@@ -38,35 +30,17 @@ public class PlayerHealth : MonoBehaviour
 
         if (collide.gameObject.tag == "hitbox")
         {
-            health--; //player takes damage
+            Respawn.playerDeath();
         }
 
-        if (collide.gameObject.tag == "checkPoint")
-        {
-            SpawnPoint = collide.transform;
-            GameManager.UpdateSpawn(collide.transform);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        //player dies here
-        if (health <= 0)
-        {
-            //restarts level
-            SceneManager.LoadScene(location);
-        }
-        if (transform.position.y <= deadly)
-        {
-            SceneManager.LoadScene(location);
-        }
     }
 
-    public void TakeDamage()
-    {
-        health--;
-    }
+
 
 }

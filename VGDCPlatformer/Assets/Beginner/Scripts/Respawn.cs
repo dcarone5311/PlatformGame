@@ -12,7 +12,7 @@ public class Respawn : MonoBehaviour {
     public Text livesText;
 
     public delegate void deatherino();
-    public static event deatherino OnDeath;
+    public static event deatherino OnPlayerDeath;
 
     
     void Start()
@@ -29,12 +29,12 @@ public class Respawn : MonoBehaviour {
 
     private void OnEnable()
     {
-        OnDeath += respawn;
+        OnPlayerDeath += respawn;
     }
 
     private void OnDisable() //this is to prevent memory leaks
     {
-        OnDeath -= respawn;
+        OnPlayerDeath -= respawn;
     }
     // Use this for initialization
     void Awake () {
@@ -50,11 +50,15 @@ public class Respawn : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("Respawn point triggered.");
-        Debug.Log(player.checkpoint);
+        Debug.Log("Player checkpoint at: " + player.checkpoint); 
         Debug.Log(respawnPoints[player.checkpoint]);
 
-        OnDeath();
+        playerDeath();
+    }
 
+    public static void playerDeath()
+    {
+        OnPlayerDeath();
     }
 
     // reloads the level
@@ -65,7 +69,8 @@ public class Respawn : MonoBehaviour {
 
     void respawn()
     {
-        playerTransform.transform.rotation = Quaternion.identity; //need to get transform component first in order to change its properties
+        Debug.Log("Respawning");
+        playerTransform.transform.rotation = Quaternion.identity; //identity = rotation 0 0 0
         playerTransform.transform.position = respawnPoints[player.checkpoint].gameObject.transform.position;
 
         lives -= 1;

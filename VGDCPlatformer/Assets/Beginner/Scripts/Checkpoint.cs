@@ -17,9 +17,13 @@ public class Checkpoint : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        passed = true;
-        player.checkpoint = checkpointNum;
+        if (checkpointNum != 0)
+        {
+            Debug.Log("Player just passed checkpoint" + checkpointNum);
+            passed = true;
+            player.checkpoint = checkpointNum;
+        }
     }
 }
