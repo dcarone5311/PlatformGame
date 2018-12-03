@@ -8,7 +8,7 @@ public class Respawn : MonoBehaviour {
     public PlayerMovement player;
     private Transform playerTransform;
 
-    private int lives;
+    public int lives = 3;
     public Text livesText;
 
     
@@ -26,7 +26,6 @@ public class Respawn : MonoBehaviour {
 
 	void Start ()
     {
-        lives = 3;
 	}
 
     // Update is called once per frame
