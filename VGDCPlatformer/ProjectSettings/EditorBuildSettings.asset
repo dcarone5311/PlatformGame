@@ -6,11 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Beginner/_scene/epicgamerlevel.unity
+    guid: 95757a131b2ede14c94ac082d187dbdb
+  - enabled: 1
     path: Assets/Beginner/_scene/MattScene.unity
     guid: 7ba56bf95265ec7468490cec9f8d84f5
   - enabled: 1
+    path: Assets/Beginner/Brandon/BrandonScene.unity
+    guid: 93c7f239e095b5b47af4ad291aa21431
+  - enabled: 1
     path: Assets/Beginner/Dominic/Level 2.unity
     guid: 12083945e75b5fb48aaf4a0914f8b223
+  - enabled: 1
+    path: Assets/congratulations.unity
+    guid: 6184572b4f56f1d4bb6c15d764b4d8e6
   - enabled: 0
     path: Assets/Beginner/Dominic/Main.unity
     guid: eac71100f6926ae4bb135c2e0e534e6d
