@@ -739,7 +739,7 @@ Animator:
   m_GameObject: {fileID: 137995501}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 37b0aaff50820fd42b2c113228a8f6af, type: 2}
+  m_Controller: {fileID: 9100000, guid: d7fedc1c947375049a6f8529b26af724, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -23215,7 +23215,7 @@ Animator:
   m_GameObject: {fileID: 1223506358}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 37b0aaff50820fd42b2c113228a8f6af, type: 2}
+  m_Controller: {fileID: 9100000, guid: d7fedc1c947375049a6f8529b26af724, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -25082,7 +25082,7 @@ Animator:
   m_GameObject: {fileID: 1450443214}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 37b0aaff50820fd42b2c113228a8f6af, type: 2}
+  m_Controller: {fileID: 9100000, guid: d7fedc1c947375049a6f8529b26af724, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -25828,7 +25828,7 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 37b0aaff50820fd42b2c113228a8f6af, type: 2}
+      objectReference: {fileID: 9100000, guid: d7fedc1c947375049a6f8529b26af724, type: 2}
     - target: {fileID: 114473103077504532, guid: 881a7201ec805754399013906562aab5,
         type: 2}
       propertyPath: movSpeed
@@ -26270,7 +26270,7 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 37b0aaff50820fd42b2c113228a8f6af, type: 2}
+      objectReference: {fileID: 9100000, guid: d7fedc1c947375049a6f8529b26af724, type: 2}
     - target: {fileID: 114473103077504532, guid: 881a7201ec805754399013906562aab5,
         type: 2}
       propertyPath: movSpeed
@@ -27071,7 +27071,7 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 37b0aaff50820fd42b2c113228a8f6af, type: 2}
+      objectReference: {fileID: 9100000, guid: d7fedc1c947375049a6f8529b26af724, type: 2}
     - target: {fileID: 114473103077504532, guid: 881a7201ec805754399013906562aab5,
         type: 2}
       propertyPath: movSpeed
@@ -27432,7 +27432,7 @@ Animator:
   m_GameObject: {fileID: 1880613962}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 37b0aaff50820fd42b2c113228a8f6af, type: 2}
+  m_Controller: {fileID: 9100000, guid: d7fedc1c947375049a6f8529b26af724, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -27845,7 +27845,7 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 37b0aaff50820fd42b2c113228a8f6af, type: 2}
+      objectReference: {fileID: 9100000, guid: d7fedc1c947375049a6f8529b26af724, type: 2}
     - target: {fileID: 114473103077504532, guid: 881a7201ec805754399013906562aab5,
         type: 2}
       propertyPath: movSpeed
