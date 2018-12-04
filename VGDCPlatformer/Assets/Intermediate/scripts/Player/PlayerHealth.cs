@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
             script.Die();
         }
 
-        if (collide.gameObject.tag == "hitbox")
+        if (collide.gameObject.tag == "hitbox" && gameObject.circlecollider)
         {
             Respawn.playerDeath();
         }
