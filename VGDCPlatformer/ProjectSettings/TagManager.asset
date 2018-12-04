@@ -9,6 +9,9 @@ TagManager:
   - floor
   - environment
   - checkPoint
+  - coincount
+  - coin
+  - enemy
   layers:
   - Default
   - TransparentFX

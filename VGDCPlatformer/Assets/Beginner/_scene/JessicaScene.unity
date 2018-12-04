@@ -980,11 +980,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!4 &750685523 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4350401308906830, guid: 8c6d6766afa43a74faa4dcc00b93d720,
-    type: 2}
-  m_PrefabInternal: {fileID: 1844610429}
 --- !u!114 &750685524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1024,8 +1019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0696156b11fea824f9de3007bf72ecc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 750685523}
-  respawnPoint: {fileID: 301488653}
+  player: {fileID: 0}
+  lives: 3
   livesText: {fileID: 854797097}
 --- !u!61 &850188613
 BoxCollider2D:
