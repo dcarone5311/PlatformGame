@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
                 m_RigidBody2D.AddForce(new Vector2(Input.GetAxisRaw("Horizontal")*runForce, 0f)); //add a force to walk
             }
 
-        if (m_RigidBody2D.velocity.x < 0)
+        if (Input.GetAxisRaw("Horizontal") < 0)
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }

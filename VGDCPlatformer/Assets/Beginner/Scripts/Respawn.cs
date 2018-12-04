@@ -80,7 +80,6 @@ public class Respawn : MonoBehaviour {
         playerTransform.transform.position = respawnPoints[player.checkpoint].gameObject.transform.position;
 
         lives -= 1;
-
         if (lives == 0)
         {
             gameOver();
