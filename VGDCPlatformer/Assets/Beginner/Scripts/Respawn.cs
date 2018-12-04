@@ -78,6 +78,7 @@ public class Respawn : MonoBehaviour {
         Debug.Log("Respawning");
         playerTransform.transform.rotation = Quaternion.identity; //identity = rotation 0 0 0
         playerTransform.transform.position = respawnPoints[player.checkpoint].gameObject.transform.position;
+        playerTransform.GetComponent<Rigidbody2D>().velocity = new Vector2();
 
         lives -= 1;
 
