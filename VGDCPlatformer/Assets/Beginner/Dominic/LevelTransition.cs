@@ -9,11 +9,12 @@ public class LevelTransition : MonoBehaviour {
 	void Start () {
         Debug.Log("Started.");
 	}
-    void OnTriggerEnter2D ()
+    void OnTriggerEnter2D (Collider2D collider)
     {
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //SceneManager.LoadScene(location);
+        if (collider.tag == "Player") {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //SceneManager.LoadScene(location);
+        }
     }
     // Update is called once per frame
     void Update () {
